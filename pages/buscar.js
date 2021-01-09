@@ -1,11 +1,13 @@
 import Layout from "../components/layout/Layout";
 
-export default function Home() {
+const Buscar = () => {
   return (
     <div>
       <Layout>
-        <h1>Inicio npm run de</h1>
+        <h1>Buscar</h1>
       </Layout>
     </div>
   );
-}
+};
+
+export default Buscar;
