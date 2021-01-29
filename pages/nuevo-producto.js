@@ -20,7 +20,7 @@ import FileUploader from "react-firebase-file-uploader";
 const STATE_INICIAL = {
   nombre: "",
   empresa: "",
-  // imagen: "",
+  imagen: "",
   url: "",
   descripcion: "",
 };
@@ -30,7 +30,7 @@ const NuevoProducto = () => {
   const [nombreimagen, guardarNombre] = useState("");
   const [subiendo, guardarSubiendo] = useState(false);
   const [progreso, guardarProgreso] = useState(0);
-  const [ulrimagen, guardarUrlImagen] = useState("");
+  const [urlimagen, guardarUrlImagen] = useState("");
 
   const [error, guardarError] = useState(false);
 
@@ -65,7 +65,7 @@ const NuevoProducto = () => {
       url,
       descripcion,
       voto: 0,
-      ulrimagen,
+      urlimagen,
       comentarios: [],
       creado: Date.now(),
     };
@@ -74,6 +74,7 @@ const NuevoProducto = () => {
     firebase.db.collection("productos").add(producto);
     return router.push("/");
   }
+
   const handleUploadStart = () => {
     guardarProgreso(0);
     guardarSubiendo(true);
@@ -93,9 +94,8 @@ const NuevoProducto = () => {
     firebase.storage
       .ref("productos")
       .child(nombre)
-      .getDownloadRL()
+      .getDownloadURL()
       .then((url) => {
-        console.log(url);
         guardarUrlImagen(url);
       });
   };
@@ -160,7 +160,7 @@ const NuevoProducto = () => {
               </Campo>
 
               <Campo>
-                <label htmlFor="imagen">URL</label>
+                <label htmlFor="url">URL</label>
                 <input
                   type="url"
                   id="url"
@@ -189,7 +189,6 @@ const NuevoProducto = () => {
               {errores.descripcion && <Error>{errores.descripcion}</Error>}
             </fieldset>
             {error && <Error>{error}</Error>}
-
             <InputSubmit type="submit" value="Crear Producto" />
           </Formulario>
         </>
