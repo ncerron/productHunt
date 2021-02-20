@@ -28,12 +28,12 @@ const InputSubmit = styled.button`
 `;
 
 const Buscar = () => {
-  const [buqueda, guardarBusqueda] = state("");
+  const [busqueda, guardarBusqueda] = useState("");
 
   const buscarProducto = (e) => {
     e.preventDefault();
 
-    if (guardarBusqueda.trim() === "") return;
+    if (busqueda.trim() === "") return;
     //redireccionar a /buscar
     Router.push({
       pathname: "/buscar",
