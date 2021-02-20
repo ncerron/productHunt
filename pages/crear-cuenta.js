@@ -15,6 +15,7 @@ import validarCrearCuenta from "../validacion/validarCrearCuenta";
 import firebase from "../firebase";
 import Router from "next/router";
 
+//para el uso del hook de validacion
 const STATE_INICIAL = {
   nombre: "",
   email: "",
@@ -25,7 +26,7 @@ const CrearCuenta = () => {
   const [error, guardarError] = useState(false);
 
   //el state depende de c/u de los componenetes que estamos
-  //utilizando
+  //utilizando, 347
   const {
     valores,
     errores,

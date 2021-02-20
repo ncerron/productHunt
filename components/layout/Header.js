@@ -4,7 +4,7 @@ import Navegacion from "../layout/Navegacion";
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import Boton from "../ui/Button";
+import Boton from "../ui/Boton";
 import { FirebaseContext } from "../../firebase";
 
 const ContenedorHeader = styled.div`
@@ -64,7 +64,7 @@ const Header = () => {
             <>
               <p
                 css={css`
-                  margin-right: 3rem;
+                  margin-right: 2rem;
                 `}
               >
                 Hola {usuario.displayName}

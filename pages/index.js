@@ -25,7 +25,7 @@ const Home = () => {
     });
     guardarProductos(productos);
   }
-
+  console.log(productos);
   return (
     <div>
       <Layout>
